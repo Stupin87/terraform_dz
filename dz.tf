@@ -22,7 +22,7 @@ resource "yandex_compute_instance" "default" {
     memory = 2
   }
   boot_disk {
-    disk_id = yandex_compute_disk.ubuntu2004_15GB.id
+    disk_id = yandex_compute_disk.ubuntu2004_20GB.id
   }
   network_interface {
     subnet_id = "e9b5gvivpqjj7upb4c9l"  
@@ -45,7 +45,7 @@ resource "yandex_compute_instance" "default" {
       "sudo apt update", 
       "sudo apt install openjdk-11-jdk maven git -y",  
       "git clone https://github.com/Stupin87/boxfuse1.git",                
-      "cd /home/keglia/boxfuse1 && mvn package"
+      "cd /home/keglia/boxfuse1 && mvn package",
       "scp /home/keglia/boxfuse1/target/hello-1.0.war keglia@new2_ip:/home/keglia",         
      
          ]
