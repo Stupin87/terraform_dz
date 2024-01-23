@@ -46,9 +46,9 @@ resource "yandex_compute_instance" "default" {
       "sudo apt install openjdk-11-jdk maven git -y",  
       "git clone https://github.com/Stupin87/boxfuse1.git",                
       "cd /home/keglia/boxfuse1 && mvn package"
-      "scp /home/keglia/boxfuse1/target/hello-1.0.war keglia@new2_ip:/home/keglia"         
-      
-    ]
+      "scp /home/keglia/boxfuse1/target/hello-1.0.war keglia@new2_ip:/home/keglia",         
+     
+         ]
   }
 }
 
@@ -82,7 +82,7 @@ resource "yandex_compute_instance" "additional" {
     inline = [
       "sudo apt update", 
       "sudo apt install tomcat9 -y",
-      "cp /home/keglia/hello-1.0.war /usr/local/tomcat/webapps"      
+      "cp /home/keglia/hello-1.0.war /usr/local/tomcat/webapps",      
       
     ]
   }
