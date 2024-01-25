@@ -22,7 +22,7 @@ resource "yandex_compute_instance" "build" {
     memory = 2
   }
   boot_disk {
-    disk_id = yandex_compute_disk.ubuntu2004_15GB.id
+    disk_id = yandex_compute_disk.build_ubuntu2004_15GB.id
   }
   network_interface {
     subnet_id = "e9b5gvivpqjj7upb4c9l"  
@@ -65,7 +65,7 @@ resource "yandex_compute_instance" "prod" {
     memory = 2
   }
   boot_disk {
-    disk_id = yandex_compute_disk.ubuntu2004_15GB.id
+    disk_id = yandex_compute_disk.prod_ubuntu2004_15GB.id
   }
   network_interface {
     subnet_id = "e9b5gvivpqjj7upb4c9l"  
@@ -101,13 +101,19 @@ data "yandex_compute_image" "ubuntu_image" {
   family = "ubuntu-2004-lts"
 }
 
-resource "yandex_compute_disk" "ubuntu2004_15GB" {
+resource "yandex_compute_disk" "bild_ubuntu2004_15GB" {
   type     = "network-ssd"
   zone     = "ru-central1-a"
   image_id = data.yandex_compute_image.ubuntu_image.id
   size     = 15
 }
-
+ 
+ resource "yandex_compute_disk" "prod_ubuntu2004_15GB" {
+  type     = "network-ssd"
+  zone     = "ru-central1-a"
+  image_id = data.yandex_compute_image.ubuntu_image.id
+  size = 15
+ }
 resource "yandex_container_registry" "my-reg" {
   name = "docker"
   folder_id = "b1g7eg0ncndrirrrbobi"
