@@ -38,7 +38,7 @@ resource "yandex_compute_instance" "build" {
     type        = "ssh"
     user        = "keglia"                            
     private_key = file("/root/.ssh/id_rsa")           
-    host        = yandex_compute_instance.default.network_interface.0.nat_ip_address  
+    host        = yandex_compute_instance.build.network_interface.0.nat_ip_address  
   }
   provisioner "remote-exec" {
     inline = [
@@ -81,7 +81,7 @@ resource "yandex_compute_instance" "prod" {
     type        = "ssh"
     user        = "keglia"                             
     private_key = file("/root/.ssh/id_rsa")           
-    host        = yandex_compute_instance.additional.network_interface.0.nat_ip_address  
+    host        = yandex_compute_instance.prod.network_interface.0.nat_ip_address  
   }
   provisioner "remote-exec" {
     inline = [
