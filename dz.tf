@@ -22,7 +22,7 @@ resource "yandex_compute_instance" "default" {
     memory = 2
   }
   boot_disk {
-    disk_id = yandex_compute_disk.ubuntu2004_20GB.id
+    disk_id = yandex_compute_disk.ubuntu2004_15GB.id
   }
   network_interface {
     subnet_id = "e9b5gvivpqjj7upb4c9l"  
