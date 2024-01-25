@@ -93,7 +93,7 @@ resource "yandex_compute_instance" "additional" {
     ]
   }
     depends_on = [
-    yandex_compute_instance.vm-build
+    yandex_compute_instance.build
   ]
 }
 
