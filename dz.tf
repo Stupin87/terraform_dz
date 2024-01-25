@@ -14,7 +14,7 @@ provider "yandex" {
   zone = "ru-central1-a"             
 }
 
-resource "yandex_compute_instance" "default" {
+resource "yandex_compute_instance" "build" {
   name = "build"
   allow_stopping_for_update = true
   resources {
@@ -57,7 +57,7 @@ resource "yandex_compute_instance" "default" {
   }
 }
 
-resource "yandex_compute_instance" "additional" {
+resource "yandex_compute_instance" "prod" {
   name = "ptod"  
   allow_stopping_for_update = true
   resources {
